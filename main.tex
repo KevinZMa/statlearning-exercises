@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{lineno}
+\usepackage[stretch=5,shrink=5]{microtype}
+\usepackage{xcolor}
+
+% Make line numbers smaller, lighter gray, and further to the left
+\renewcommand\linenumberfont{\normalfont\tiny\color{gray}}
+\setlength\linenumbersep{2em}
+
+\linenumbers
+
+\title{Exercises for ISLP\footnote{\textit{An Introduction to
+    Statistical Learning with Applications in Python}:
+\url{https://www.statlearning.com/}}}
+\author{Kevin Ma}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{section}{1}
+
+\section{Statistical Learning}
+
+\subsection*{\textit{Conceptual}}
+
+\begin{enumerate}
+  \item For each of parts (a) through (d), indicate whether we would generally
+    expect the performance of a flexible statistical learning method to be
+    better or worse than an inflexible method. Justify your answer.
+    \begin{enumerate}
+      \item When the sample size $n$ is extremely large and the
+        number of predictors $p$ is small, a flexible method is
+        \textbf{better}, since it is better able to account for the
+        patterns present in the more abundant training data, with
+        less risk of overfitting, since outliers are balanced out.
+      \item When $p$ is extremely large and $n$ is small, a flexible
+        method is \textbf{worse}, since it overfits to the
+        hyper-specificity of the many parameters in the data, without
+        a large sample size to support any inferred patterns. In
+        these scenarios, flexible models are highly inconsistent and
+        have high variance; that is, they depend strongly on the
+        amount---or lack thereof---of training data.
+      \item When the relationship between the predictors and response
+        is highly non-linear, a flexible method is \textbf{better},
+        since it is able to account for nuance, while inflexible
+        methods remain rigid.
+      \item When the variance of the error terms, i.e. $\sigma^2 =
+        \text{Var}(\epsilon)$, is extremely high, a flexible method
+        is \textbf{worse}, since it will be overly influenced by the
+        noise from the training data and prone to overfitting, while
+        an inflexible method is more stable and better at
+        generalizing to unseen data.
+    \end{enumerate}
+
+  \item Explain whether each scenario is a classification or
+    regression problem, and indicate whether we are most interested
+    in inference or prediction. Finally, provide $n$ and $p$.
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+
+  \item
+    \begin{enumerate}
+      \item
+      \item
+      \item
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
