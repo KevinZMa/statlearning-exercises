@@ -177,24 +177,99 @@
     a less flexible) approach for regression or classification? Under what
     circumstances might a more flexible approach be preferred to a less
     flexible approach? When might a less flexible approach be preferred?
-    \begin{enumerate}
-      \item
-      \item
-      \item
-    \end{enumerate}
+    \begin{answer}
+      The advantages of a very flexible approach for regression
+      include being able to capture deeper relationships between
+      predictors. However, when training data is not always
+      consistent or does not always resemble the test data, flexible
+      approaches may overfit to the training data, resulting in high
+      variance. Less flexible approaches are less prone to being
+      influenced by a ``bad'' dataset's noise or outliers, but may
+      not be able to capture more detailed patterns.
 
-  \item
-    \begin{enumerate}
-      \item
-      \item
-      \item
-    \end{enumerate}
+      Flexible approaches are preferred when interpretability is not
+      that important, and there is a large sample size of data, which
+      minimizes variance. Less flexible approaches are preferred when
+      there is a lot of noise in the dataset, the sample size is
+      small, or interpretability is important.
+    \end{answer}
 
-  \item
+  \item Describe the differences between a parametric and a non-parametric
+    statistical learning approach. What are the advantages of a
+    parametric approach to regression or classification (as opposed
+    to a non-parametric approach)? What are its disadvantages?
+    \begin{answer}
+      A parametric approach assumes the distribution of the data and
+      shape of $f$, the true function relating the predictors to the
+      responses. A non-parametric approach does not make this
+      assumption, but rather adapts the shape based on the data.
+
+      Parametric approaches greatly simplify the fitting problem to
+      estimating a fixed set of parameters, but come with the
+      possibility that the true shape of $f$ is different than
+      assumed. Nonparametric approaches are much more adaptable to
+      different shapes, but require a large sample size to catch on
+      to the true shape.
+    \end{answer}
+
+  \item The table below provides a training data set containing six
+    observations, three predictors, and one qualitative response variable.
+    \begin{center}
+      \begin{tabular}{l|rrrl}
+        \hline
+        Obs. & $X_1$ & $X_2$ & $X_3$ & $Y$ \\
+        \hline
+        1 & 0 & 3 & 0 & Red \\
+        2 & 2 & 0 & 0 & Red \\
+        3 & 0 & 1 & 3 & Red \\
+        4 & 0 & 1 & 2 & Green \\
+        5 & $-1$ & 0 & 1 & Green \\
+        6 & 1 & 1 & 1 & Red \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    Suppose we wish to use this data set to make a prediction for $Y$
+    when $X_1 = X_2 = X_3 = 0$ using $K$-nearest neighbors.
+
     \begin{enumerate}
-      \item
-      \item
-      \item
+      \item Compute the Euclidean distance between each observation
+        and the test point, $X_1 = X_2 = X_3 = 0$.
+        \begin{center}
+          \begin{tabular}{l|rl}
+            \hline
+            Obs. & Euclidean distance & $Y$ \\
+            \hline
+            1 & $\sqrt{(0-3)^2}=3$ & Red \\
+            2 & $\sqrt{(0-2)^2}=2$ & Red \\
+            3 & $\sqrt{(0-1)^2 + (0-3)^2} = \sqrt{10} \approx 3.162$ & Red \\
+            4 & $\sqrt{(0-1)^2 + (0-2)^2} = \sqrt{5} \approx 2.236$ & Green \\
+            5 & $\sqrt{(0-(-1))^2 + (0-1)^2} = \sqrt{2} \approx
+            1.414$ & Green \\
+            6 & $\sqrt{3(0-1)^2} =\sqrt{3} \approx 1.732$ & Red \\
+            \hline
+          \end{tabular}
+        \end{center}
+      \item What is our prediction with $K = 1$? Why?
+        \begin{answer}
+          The 1 observation with the smallest Euclidean distance is
+          Obs. 5, and our prediction is the most frequently occuring
+          $Y$ within this set of 1 observation, which is \texttt{Green}.
+        \end{answer}
+      \item What is our prediction with $K = 3$? Why?
+        \begin{answer}
+          The 3 observations with the smallest Euclidean distance are
+          Obs. 5, 6, and 2; and our prediction is the most frequently
+          occuring $Y$ within this set of 3 observations, which is
+          \texttt{Red}, with $\text{Pr}(Y=\text{Red} \mid
+          X=(0,0,0))=\frac{2}{3}$.
+        \end{answer}
+      \item If the Bayes decision boundary in this problem is highly
+        non-linear, then would we expect the best value for $K$ to be
+        large or small? Why?
+        \begin{answer}
+            The best value for $K$ is small, since a fine-grained decision boundary is necessary to handle the problem's high non-linearity.
+        \end{answer}
     \end{enumerate}
 
 \end{enumerate}
