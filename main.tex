@@ -21,6 +21,18 @@
 \begin{quote}}{
 \end{quote}}
 
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+% =====
+
 \title{Exercises for ISLP\footnote{\textit{An Introduction to
     Statistical Learning with Applications in Python}:
 \url{https://www.statlearning.com/}}}
@@ -101,25 +113,70 @@
 
         \begin{answer}
           This is a \textbf{regression} problem dealing with
-          qualitative percent change. $n$ is $52$ (weeks in 2012), and $p$ is 3.
+          quantitative percent change. $n$ is $52$ (weeks in 2012),
+          and $p$ is 3.
         \end{answer}
     \end{enumerate}
 
-  \item
+  \item We now revisit the bias-variance decomposition.
     \begin{enumerate}
       \item
-      \item
+        %   \begin{figure}[ht]
+        %     \centering
+        %     \incfig{ch2_3a_bias_variance}
+        %     \caption{test}
+        %     \label{fig:bias-variance}
+        % \end{figure}
       \item
     \end{enumerate}
 
-  \item
+  \item You will now think of some real-life applications for
+    statistical learning.
     \begin{enumerate}
-      \item
-      \item
-      \item
+      \item Describe three real-life applications in which classification might
+        be useful. Describe the response, as well as the predictors. Is the
+        goal of each application inference or prediction? Explain your
+        answer.
+        \begin{itemize}
+          \item Collecting students' academic data to
+            improve effectiveness of teaching strategies. Responses
+            could include indicators like grade point average or
+            standardized test scores, and predictors could include
+            teacher-to-student ratio, class length, average minutes
+            of each type of classroom activity (e.g. group work,
+            lectures, labs) and amount of daily homework assigned.
+            This is an \textbf{inference} problem, since it is
+            important to interpret which of the predictors is most
+            vital to student success.
+        \end{itemize}
+
+      \item Describe three real-life applications in which regression might
+        be useful. Describe the response, as well as the predictors. Is the
+        goal of each application inference or prediction? Explain your
+        answer.
+        \begin{itemize}
+          \item Predicting weather. Predictors could include
+            temperature, pressure, wind, precipitation, and humidity
+            for a specific point in time. Responses could include any
+            of those same predictor variables. This is a
+            \textbf{prediction} application, since it is more
+            important to get an accurate forecast than to understand
+            what variables cause the forecast and their relationships.
+        \end{itemize}
+      \item Describe three real-life applications in which cluster analysis
+        might be useful.
+        \begin{itemize}
+          \item Grouping professional sports players into archetypes
+            by analyzing their in-game data. Useful for general
+            managers who want to build more cohesive teams or fill a
+            missing role.
+        \end{itemize}
     \end{enumerate}
 
-  \item
+  \item What are the advantages and disadvantages of a very flexible (versus
+    a less flexible) approach for regression or classification? Under what
+    circumstances might a more flexible approach be preferred to a less
+    flexible approach? When might a less flexible approach be preferred?
     \begin{enumerate}
       \item
       \item
