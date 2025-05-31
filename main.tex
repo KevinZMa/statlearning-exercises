@@ -6,6 +6,7 @@
 \usepackage{xcolor}
 \usepackage[margin=1.2in]{geometry}
 \usepackage{enumitem}
+\usepackage{pgfplots} \pgfplotsset{compat=1.18}
 
 % colored inline code
 \let\oldttfamily\ttfamily
@@ -64,8 +65,7 @@
         hyper-specificity of the many parameters in the data, without
         a large sample size to support any inferred patterns. In
         these scenarios, flexible models are highly inconsistent and
-        have high variance; that is, they depend strongly on the
-        amount---or lack thereof---of training data.
+        have high variance; that is, they are highly affected by small datasets that are subject to random variation.
       \item When the relationship between the predictors and response
         is highly non-linear, a flexible method is \textbf{better},
         since it is able to account for nuance, while inflexible
@@ -121,12 +121,43 @@
   \item We now revisit the bias-variance decomposition.
     \begin{enumerate}
       \item
-        %   \begin{figure}[ht]
-        %     \centering
-        %     \incfig{ch2_3a_bias_variance}
-        %     \caption{test}
-        %     \label{fig:bias-variance}
-        % \end{figure}
+      \begin{tikzpicture}
+        \begin{axis}[
+            xlabel={k (number of neighbors)},
+            ylabel={Error / Bias$^2$ / Variance},
+            title={Bias-Variance Decomposition for KNN Regression},
+            legend pos=outer north east,
+            legend style={text width=3.5cm, align=left},
+            grid style=dashed,
+            grid=major,
+            xmajorgrids=true,
+            ymajorgrids=true,
+        ]
+        
+        \addplot table[x=k, y=Train MSE, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Train MSE}
+        
+        \addplot table[x=k, y=Test MSE, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Test MSE}
+        
+        \addplot table[x=k, y=Bias^2, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Bias$^2$}
+        
+        \addplot table[x=k, y=Variance, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Variance}
+        
+        \addplot table[x=k, y=Bayes, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Bayes}
+        
+        \addplot table[x=k, y=Approximated Test MSE, col sep=comma]{data/knn_bias_variance_200trials.csv};
+        \addlegendentry{Approx. Test MSE}
+        
+        \end{axis}
+        \end{tikzpicture}
+        
+        \begin{center}
+        \footnotesize Data generation process: \url{https://colab.research.google.com/drive/18Fiz4dJgnacXO8Ix8em3vGMLxiYEF9qE}
+        \end{center}
       \item
     \end{enumerate}
 
